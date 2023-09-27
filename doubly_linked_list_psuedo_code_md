@@ -1,0 +1,50 @@
+//Psuedo code for doubly linked list in c++:
+
+//The difference between a singly linked list and a doubly linked list is that a doubly linked list has a pointer to the previous node of the current node.
+//The advantage of a doubly linked list is that we can traverse the list in both directions.
+
+//Psuedo code for doubly linked list in c++:
+
+DoublyLinkedList:
+    
+    Node: 
+        - Contains data (could be of any type: integer, string, etc.)
+        - Pointer/reference to the next node in the list (or null if it's the last node)
+        - Pointer/reference to the previous node in the list (or null if it's the first node)
+
+    Operations:
+
+    1. Initialization:
+        - Start with an empty list (i.e., head and tail pointers/references are null)
+
+    2. Append (insert at the end):
+        - If list is empty, create a new node, make the head and tail both point to it
+        - Else, create a new node, make it the next of the tail, and update the tail to this new node
+
+    3. Prepend (insert at the beginning):
+        - If list is empty, use the same steps as Append
+        - Else, create a new node, set its next to the current head, set the head's previous to this new node, and update the head to this new node
+
+    4. Delete (by value):
+        - If list is empty, return
+        - Traverse the list to find the node with the desired value
+        - Update the next pointer/reference of the previous node and the previous pointer/reference of the next node accordingly to remove the found node from the list
+        - Special cases: deleting the head or tail node might require updates to the head or tail pointer/reference of the list
+
+    5. Display Forward:
+        - Start from the head and traverse the list in the forward direction
+        - For each node, print its value
+
+    6. Display Backward:
+        - Start from the tail and traverse the list in the backward direction
+        - For each node, print its value
+
+    7. (Optional) Search:
+        - Traverse the list from the head or tail (based on which end is closer to the expected position of the searched value)
+        - For each node, if its value matches the searched value, return the node (or true). If end/beginning of list is reached without finding, return null (or false)
+
+Usage:
+
+1. Create an empty doubly linked list
+2. Perform operations like append, prepend, delete, etc.
+3. Display forward, display backward, or search as needed
