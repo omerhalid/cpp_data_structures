@@ -53,7 +53,12 @@ Welcome to the CPP Data Structures repository! This repository contains a collec
 
 ## Trees
 
-- **File**: `trees.md`
+- **Files**:
+  - `trees.md`: Contains documentation on trees and related algorithms.
+  - `binary_search_tree.cpp`: Contains basic binary search tree (BST) operations.
+  - `find_min_max_in_binary_search_tree.cpp`: Contains code to find minimum and maximum values in a BST.
+  - `binary_tree_traversals_bfs_queue.cpp`: Contains code for breadth-first search (BFS) traversal of a binary tree using a queue.
+  - `binary_tree_traversals_dfs_recursion`: Contains code for depth-first search (DFS) traversal of a binary tree using recursion.
 - **Description**: Contains updated notes on tree data structures.
 - **Last Update**: October 1, 2023
 
