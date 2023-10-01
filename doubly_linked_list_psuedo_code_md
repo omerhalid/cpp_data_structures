@@ -1,4 +1,4 @@
-//Psuedo code for doubly linked list in c++:
+Psuedo code for doubly linked list in c++:
 
 //The difference between a singly linked list and a doubly linked list is that a doubly linked list has a pointer to the previous node of the current node.
 //The advantage of a doubly linked list is that we can traverse the list in both directions.

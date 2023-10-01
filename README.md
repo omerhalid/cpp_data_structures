@@ -61,7 +61,11 @@ This repository contains implementations of various fundamental data structures 
 
 ## Trees
 
-- **File**: `trees.md`
+- **Files**: 
+  - `trees.md`: Notes on tree data structures.
+  - `tree_traversals_bfs_queue.cpp`: Implementation of breadth-first traversal of a tree using a queue.
+  - `binary_search_tree.cpp`: Implementation of a binary search tree.
+  - `binary_traversal_dfs_recursion.cpp`: Implementation of depth-first traversal of a binary tree using a stack.
 - **Description**: Contains updated notes on tree data structures.
 - **Last Update**: October 1, 2023
 
