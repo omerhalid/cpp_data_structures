@@ -1,46 +1,38 @@
-# C++ Data Structures Repository
+# CPP Data Structures Repository
 
-This repository contains implementations of various fundamental data structures in C++.
+Welcome to the CPP Data Structures repository! This repository contains a collection of fundamental data structures and associated algorithms written in C++.
 
 ## Table of Contents
 
-- [Balanced Parentheses using Stack](#balanced-parentheses-using-stack)
-- [Doubly Linked List](#doubly-linked-list)
-- [Pseudocodes](#pseudocodes)
-- [Linked List](#linked-list)
-- [Queue using Array](#queue-using-array)
-- [Recursion in Linked List](#recursion-in-linked-list)
-- [Stack](#stack)
-- [Trees](#trees)
+1. [Balanced Parentheses](#balanced-parentheses)
+2. [Binary Trees](#binary-trees)
+3. [Linked Lists](#linked-lists)
+4. [Stacks](#stacks)
+5. [Queues](#queues)
+6. [Pseudo Code](#pseudo-code)
+7. [Others](#others)
 
-## Balanced Parentheses using Stack
+## Balanced Parentheses
 
-- **File**: `balanced_parantheses_stack.cpp`
-- **Description**: This file contains an implementation to check for balanced parentheses using a stack.
-- **Last Update**: September 27, 2023
+- [`balanced_parantheses_stack.cpp`](balanced_parantheses_stack.cpp): Implementation of balanced parentheses check using a stack.
 
-## Doubly Linked List
+## Binary Trees
 
-- **File**: `doubly_linked_list.cpp`
-- **Description**: Contains code for doubly linked list operations and also a method to reverse the doubly linked list using recursion.
-- **Last Update**: September 25, 2023
+- [`binary_search_tree.cpp`](binary_search_tree.cpp): Basic binary search tree (BST) operations.
+- [`find_min_max_in_binary_search_tree.cpp`](find_min_max_in_binary_search_tree.cpp): Find minimum and maximum values in a BST.
+- [`trees.md`](trees.md): Documentation on trees and related algorithms.
 
-## Pseudocodes
+## Linked Lists
 
-- **Doubly Linked List Pseudocode**: `doubly_linked_list_psuedo_code_md`
-- **Linked List Pseudocode**: `linked_list_pseudo_code.md`
-- **Last Update**: September 27, 2023
+- [`linket_list.cpp`](linket_list.cpp): Basic linked list operations.
+- [`doubly_linked_list.cpp`](doubly_linked_list.cpp): Implementation of doubly linked list and reversing the list using recursion.
+- [`linked_list_using_stack_reverse.cpp`](linked_list_using_stack_reverse.cpp): Using stack to reverse a linked list.
+- [`queue_linked_list.cpp`](queue_linked_list.cpp): Implementing a queue using linked lists.
+- [`recursion_linked_list.cpp`](recursion_linked_list.cpp): Printing linked list elements using recursion.
+- [`reverse_linked_list.cpp`](reverse_linked_list.cpp): Reverse a singly linked list.
+- [`reverse_linked_list_recursion.cpp`](reverse_linked_list_recursion.cpp): Recursively reverse a linked list.
 
-## Linked List
-
-- **Files**:
-  - `linket_list.cpp`: Basic operations in a singly linked list.
-  - `linked_list_using_stack_reverse.cpp`: Reversing a linked list using a stack.
-  - `reverse_linked_list.cpp`: Method to reverse a linked list.
-  - `reverse_linked_list_recursion.cpp`: Reversing a linked list using recursion.
-- **Last Update**: Various dates, latest being September 26, 2023
-
-## Queue using Array
+## Stacks
 
 - **File**: `queue_array.cpp`
 - **Description**: Contains implementation of a queue using an array.
@@ -61,11 +53,7 @@ This repository contains implementations of various fundamental data structures 
 
 ## Trees
 
-- **Files**: 
-  - `trees.md`: Notes on tree data structures.
-  - `tree_traversals_bfs_queue.cpp`: Implementation of breadth-first traversal of a tree using a queue.
-  - `binary_search_tree.cpp`: Implementation of a binary search tree.
-  - `binary_traversal_dfs_recursion.cpp`: Implementation of depth-first traversal of a binary tree using a stack.
+- **File**: `trees.md`
 - **Description**: Contains updated notes on tree data structures.
 - **Last Update**: October 1, 2023
 
