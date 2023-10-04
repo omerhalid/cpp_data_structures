@@ -43,7 +43,7 @@ void LevelOrder(Node *root)
     while(!Q.empty())
     {
         Node *current = Q.front(); //current will point to the front element of the queue
-        Q.pop(); //removing the element at front
+        Q.pop(); //removing the element at front, why? because we have already stored it in current
 
         cout << current->data << " ";
 
