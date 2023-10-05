@@ -3,6 +3,35 @@ Graphs in C++
 Introduction:
 
 A graph is one of the most fundamental and versatile data structures used in the field of computer science. It consists of a finite set of nodes (or vertices) and a set of edges that connect these nodes. Each edge connects two nodes, representing a relationship between them. Depending on the nature of the relationship, a graph can be undirected (where an edge doesn't have a direction) or directed (where an edge has a start and an end vertex, often called a "digraph").
+
+Number of edges:
+    
+        Undirected Graph: m <= n(n-1)/2
+        Directed Graph: m <= n(n-1)
+    
+    where n is the number of vertices and m is the number of edges in the graph.
+    *Assuming no self-loops and no multiple edges.
+
+    Dense --> too many edges (We typically use adjacency matrix representation for dense graphs)
+    Sparse --> too few edges (We typically use adjacency list representation for sparse graphs)
+
+Path: A sequence (walk) of vertices in a graph such that all vertices in the path are connected by edges.
+Trail: A walk in which no edges are repeated.
+
+Simple Path: A path in which no vertices (and thus no edges) are repeated.
+Walk: Similar to a path, except that vertices and edges can be repeated.
+
+Strongly Connected Graph: A directed graph in which there is a path from each vertex to every other vertex.
+Connected Graph: An undirected graph in which there is a path from each vertex to every other vertex.
+
+Weakly Connected Graph: A directed graph in which there is a path from each vertex to every other vertex if we ignore the direction of edges.
+
+Closed Walk: A walk in which the start vertex and end vertex are the same.
+
+Simple Cycle: A cycle in which no vertices (and thus no edges) are repeated, except the start and end vertex.
+
+Acyclic Graph: A graph that has no cycles. For example, a tree is an acyclic connected graph.
+
 Where Are Graphs Used?
 
 Graphs are ubiquitous and find applications in various domains:
