@@ -1,127 +1,230 @@
-//omer halit cinar
-
-//there are some points here which needs to be fixed.
+//reverse the linked list:
+//https://www.enjoyalgorithms.com/blog/reverse-linked-list
 
 #include <iostream>
 
 using namespace std;
 
-//implement basic linked list
-//take screenshots from the youtube video
-
-//create a node
-struct Node
-{
-    int data; //data field
-    Node* next; //link field
+struct Node{
+    int data;
+    Node* next;
 };
 
-Node* head; //global variable
+Node* head = nullptr; //global init.
 
-//insert a node at the beginning of the list
-void Insert_beginning(int x)
-{
-    Node* temp = new Node(); //create a new node
-    temp -> data = x; //set the data
-    temp -> next = head; //set the link
-    head = temp; //set the head to temp
+void InsertBeginning(int x){
+
+    Node* temp = new Node();
+
+    temp -> data = x;
+
+    temp -> next = head;
+
+    head = temp;
 }
 
-//insert a node at the nth position
-void Insert(int data, int n)
-{
-    Node* temp1 = new Node(); //create a new node
-    temp1 -> data = data; //set the data
-    temp1 -> next = NULL; //set the link to NULL
+void InsertNthPositon(int x, int n){
+    //x is the data and n is the position
+
+    Node* new_data = new Node();
+
+    new_data -> data = x;
+    new_data -> next = nullptr;
+
     if(n == 1){
-        temp1 -> next = head;
-        head = temp1;
-        return ;
-    }
-    Node* temp2 = head; //create a new node
-    for(int i = 0; i < n-2; i++)
-    //why i < n-2? because we want to stop at the node before the nth node
-    {
-        temp2 = temp2 -> next; //traverse the list
-    }
-    temp1 -> next = temp2 -> next; //set the link of the new node to the link of the node before the nth node
-    temp2 -> next = temp1; //set the link of the node before the nth node to the new node
-}
-
-void Print(Node* head)
-{
-    cout << "List is: ";
-    //traverse the list
-    while(head != NULL)
-    {
-        cout << head -> data << " ";
-        head = head -> next;
-    }
-    cout << endl;
-}
-
-//reverse the linked list
-void Reverse()
-{
-    Node* current; //current node 
-    Node* prev; //previous node
-    Node* next; //next node
-    current = head;
-    prev = nullptr;
-    while(current != nullptr)
-    {
-        next = current -> next; //store the next node
-        current -> next = prev; //reverse the link
-        prev = current; //move prev one step forward
-        current = next; //move current one step forward
-    }
-    head = prev; //set the head to last node
-}
-
-void Delete(int n){
-    Node* temp1 = head;
-    //if we want to delete the first node
-    if(n == 1){
-        head = temp1 ->next;
-        delete temp1;
+        InsertBeginning(x); //is this ok? I guess, yeah
         return;
     }
-    for(int i=0; i<n-2; i++){
-        temp1 = temp1 -> next;
+
+    Node* temp = new Node();
+    temp = head;
+
+    //Traverse the list
+    for(int i=0; i< n-2 ; i++){
+        temp = temp -> next; //we cme to the n-1 position
     }
-    Node* temp2 = temp1 -> next; //nth node to be deleted
-    temp1 -> next = temp2 -> next; //set the link of the node before the nth node to the link of the node after the nth node
-    delete temp2; //delete the nth node
+
+    new_data -> next = temp -> next;
+
+    temp -> next = new_data;
+
 }
 
-int main() {
+void Print(){
 
-    head = nullptr; 
+    Node* temp = new Node();
+    temp = head;
 
-    cout << "How many numbers?" << endl;
-    int n, x;
-    cin >> n;
-    for(int i = 0; i < n; i++)
+    while(temp != nullptr){
+        cout<<temp->data<<" ";
+        temp = temp->next;
+    }
+    cout<<endl;
+
+}
+
+//delete the head node
+void DeleteHead()
+{
+    if (head == nullptr) return;
+
+    Node* temp = head;
+
+    head = head -> next;
+
+    delete temp;
+
+}
+
+//delete the tail node
+void DeleteTail()
+{
+    //we will use two pointer method
+
+    if(!head) return;
+    if(head -> next == nullptr)
     {
-        cout << "Enter the number" << endl;
-        cin >> x;
-        cout << "Enter the position" << endl;
-        int pos;
-        cin >> pos;
-        Insert(x, pos);
-        Print(head);
+        DeleteHead();
+        return;
     }
-    cout << "Enter a position to delete" << endl;
-    int del_pos;
-    cin >> del_pos;
-    Delete(del_pos);
-    Print(head);
-    cout<<"Do you want to reverse the list? (y/n)"<<endl;
-    char ans;
-    cin >> ans;
-    if(ans == 'y'){
-        Reverse();
-        Print(head);
+
+    Node* ptemp = head;
+    Node* temp = head -> next; //it needs to be one step further than ptemp
+    
+
+    //traverse the list
+    while(temp -> next != NULL)
+    {
+        ptemp = ptemp ->next;
+        temp = temp-> next;
     }
-    return 0;
+    //now i am at the last node
+    ptemp -> next = nullptr;
+
+    delete temp;
+
+}
+
+//delete nth element
+void DeleteNthNode(int n){
+
+    if(head == nullptr) return;
+    if(n == 1){
+        DeleteHead();
+        return;
+    }
+
+    Node* temp = head;
+
+    //traverse the list
+    for(int i=0; i<n-2; i++){
+        temp = temp -> next; //we found the n-1 node
+        //check if n is greater than the length of the list
+        if(temp == nullptr){
+            cout<<"Position out of bounds!"<<endl;
+        }
+    }
+
+    Node* toBeDeleted = temp -> next; //we are putting the node we want to delete into a new temp node
+    if (toBeDeleted == nullptr) {
+        cout << "Position out of bounds!" << endl;
+        return;
+    }
+
+    temp -> next = toBeDeleted -> next;
+
+    delete toBeDeleted;
+    
+}
+
+void DeleteNthAtTheEnd(int n){
+    //we can work with the offset
+    
+    Node* dummy = new Node();
+
+    dummy->data = NULL;
+    dummy->next = head;
+    
+    Node* first = head;
+    Node* last = dummy;
+
+    for(int i=0; i<n; i++){
+        first = first -> next;
+    }
+
+    while(first != nullptr){
+        first = first->next;
+        last = last ->next;
+    }
+
+    //last is the node we want to delete
+
+    Node* nodeToDelete = last ->next;
+
+    last -> next = last -> next -> next;
+
+    delete nodeToDelete;
+    delete dummy;
+    
+
+}
+
+void Inverse()
+{
+    //come back to this and study it again. 
+
+    //2 options:
+    // -Recursive
+    // -Iterative
+
+    //We will iterative method with 3 pointers
+
+    Node* current = head;
+    Node* prev = nullptr;
+    Node* forw = nullptr;
+
+    while(current != nullptr){
+        forw = current ->next; 
+        current -> next = prev;
+        prev = current; //shift the prev
+        current = forw; //shift the current
+
+    }
+
+    head = prev; // update the head pointer
+
+}
+
+int main(){
+    InsertBeginning(5);
+    InsertNthPositon(1, 2);
+    
+    InsertNthPositon(2, 3);
+    
+    InsertNthPositon(3, 4);
+    
+    InsertNthPositon(4, 5);
+    InsertNthPositon(5, 6);
+    InsertNthPositon(6, 7);
+    InsertNthPositon(7, 8);
+
+    Print();
+
+    DeleteHead();
+    Print();
+
+    DeleteTail();
+    Print();
+
+    DeleteNthNode(3);
+    Print();
+
+    DeleteNthNode(4);
+    Print();
+
+    Inverse();
+    Print();
+
+    DeleteNthAtTheEnd(2);
+    Print();
 }

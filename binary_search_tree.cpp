@@ -44,7 +44,7 @@
 using namespace std;
 
 //in linked list we always track the head node, in binary tree we always track the root node
-//it is very similar to dubly linked list, because it has left and right child just like next and prev
+//it is very similar to doubly linked list, because it has left and right child just like next and prev
 struct BstNode
 {
     int data;
@@ -73,7 +73,7 @@ BstNode* Insert(BstNode* root, int data){
         root->left = Insert(root->left, data); //create a new node and set it to the left child
     }
     else{ //if the data is greater than the root node
-        root->right = GetNewNode(data); //create a new node and set it to the right child
+        root->right = Insert(root->right, data); //create a new node and set it to the right child
     }
     return root; //return the root node
 

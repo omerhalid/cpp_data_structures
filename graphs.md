@@ -32,6 +32,17 @@ Simple Cycle: A cycle in which no vertices (and thus no edges) are repeated, exc
 
 Acyclic Graph: A graph that has no cycles. For example, a tree is an acyclic connected graph.
 
+How to represent Graphs?:
+    
+        Adjacency Matrix: A 2D array of size V x V, where V is the number of vertices in a graph. If there is an edge from vertex i to vertex j, then the cell M[i][j] is 1, otherwise 0. For undirected graphs, since an edge from vertex i to vertex j is the same as an edge from vertex j to vertex i, we have M[i][j] = M[j][i] = 1.
+    
+        Adjacency List: An array of linked lists, where the size of the array is equal to the number of vertices in a graph. Each entry in the array represents a vertex and the linked list in each entry represents the other vertices that form an edge with the vertex.
+    
+        Edge List: A list of all the edges in the graph. Each edge is represented by a pair of vertices.
+    
+        Incidence Matrix: A 2D array of size V x E, where V is the number of vertices and E is the number of edges in a graph. If edge e is incident on vertex v, then M[v][e] = 1, otherwise 0. For undirected graphs, since an edge incident on vertex v is the same as an edge incident on vertex v, we have M[v][e] = 1.
+
+
 Where Are Graphs Used?
 
 Graphs are ubiquitous and find applications in various domains:
