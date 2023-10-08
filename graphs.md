@@ -34,7 +34,7 @@ Acyclic Graph: A graph that has no cycles. For example, a tree is an acyclic con
 
 How to represent Graphs?:
     
-        Adjacency Matrix: A 2D array of size V x V, where V is the number of vertices in a graph. If there is an edge from vertex i to vertex j, then the cell M[i][j] is 1, otherwise 0. For undirected graphs, since an edge from vertex i to vertex j is the same as an edge from vertex j to vertex i, we have M[i][j] = M[j][i] = 1.
+        Adjacency Matrix: A 2D array of size V x V, where V is the number of vertices in a graph. If there is an edge from vertex i to vertex j, then the cell M[i][j] is 1, otherwise 0. For undirected graphs, since an edge from vertex i to vertex j is the same as an edge from vertex j to vertex i, we have M[i][j] = M[j][i] = 1. Time complexity for finding adjacent vertices is O(V), where V is the number of vertices in the graph. Also time complexity for finding if there is an edge from vertex i to vertex j is O(1) + O(V), if we use hash tables we can avoid the O(V) time complexity. so overall time complexity is O(1).There is a big space-time tradeoff here. Adjacency matrix is good if the graph is dense, i.e. the number of edges is close to the number of vertices squared. Otherwise, it's better to use an adjacency list.
     
         Adjacency List: An array of linked lists, where the size of the array is equal to the number of vertices in a graph. Each entry in the array represents a vertex and the linked list in each entry represents the other vertices that form an edge with the vertex.
     
