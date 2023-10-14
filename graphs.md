@@ -42,6 +42,12 @@ How to represent Graphs?:
     
         Incidence Matrix: A 2D array of size V x E, where V is the number of vertices and E is the number of edges in a graph. If edge e is incident on vertex v, then M[v][e] = 1, otherwise 0. For undirected graphs, since an edge incident on vertex v is the same as an edge incident on vertex v, we have M[v][e] = 1.
 
+        When to use which representation?:
+            Adjacency Matrix: Good if the graph is dense, i.e. the number of edges is close to the number of vertices squared.
+            Adjacency List: Better if the graph is sparse, i.e. the number of edges is close to the number of vertices. (Sparse means that the number of edges is very less compared to the number of vertices)
+            Edge List: Better if the graph is very sparse, i.e. the number of edges is close to the number of vertices.
+            Incidence Matrix: Better if the graph is dense, i.e. the number of edges is close to the number of vertices squared.
+
 
 Where Are Graphs Used?
 
@@ -54,6 +60,7 @@ Graphs are ubiquitous and find applications in various domains:
     Biology: Representing networks of ecological relationships or pathways in cellular systems.
 
 ... and many more.
+
 Types of Graphs:
 
     Undirected Graph: Edges do not have a direction.
