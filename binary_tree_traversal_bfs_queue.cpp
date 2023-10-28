@@ -1,4 +1,6 @@
 
+//COME BACK TO THIS PROBLEM LATER
+
 //Problem statement link: https://leetcode.com/problems/binary-tree-inorder-traversal/
 
 //Tree is not a linear data structure, so we can't traverse it in a linear way.
@@ -25,51 +27,56 @@
 
 using namespace std;
 
-struct Node
+struct TreeNode
 {
-    char data; 
-    Node *left;
-    Node *right;
+    int val; 
+    TreeNode *left;
+    TreeNode *right;
 };
 
-void LevelOrder(Node *root)
-{
-    if(root == NULL)
-        return;
-    
-    queue<Node*> Q; //creating an empty queue
-    Q.push(root);
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    vector<vector<int>> levelOrder(TreeNode* root) {
 
-    //while there is at least one discovered node
-    while(!Q.empty())
-    {
-        Node *current = Q.front(); //current will point to the front element of the queue
-        Q.pop(); //removing the element at front, why? because we have already stored it in current
+        if(root == nullptr) return {};
 
-        cout << current->data << " ";
+        queue<TreeNode*> Q;
+        vector<vector<int>> result;
 
-        if(current->left != NULL)
-            Q.push(current->left);
-        if(current->right != NULL)
-            Q.push(current->right);
+        Q.push(root);
+
+        while(!Q.empty())
+        {
+            int levelSize = Q.size();
+            vector<int> currentLevel;
+
+            for(int i=0; i<levelSize; i++){
+                TreeNode* current = Q.front();
+                Q.pop();
+
+                if(current -> left != nullptr){ // <-- Corrected this line
+                    Q.push(current->left);
+                }
+                
+                if(current -> right != nullptr){
+                    Q.push(current->right);
+                }
+                
+                currentLevel.push_back(current->val);
+            }
+            result.push_back(currentLevel); // <-- Added this line
+        }
+        return result;
     }
-}
-
-int main()
-{
-    //constructing the tree
-    Node *root = new Node();
-    root->data = 'A';
-    root->left = new Node();
-    root->left->data = 'B';
-    root->left->left = NULL;
-    root->left->right = NULL;
-    root->right = new Node();
-    root->right->data = 'C';
-    root->right->left = NULL;
-    root->right->right = NULL;
-
-    LevelOrder(root);
-
-    return 0;
-}
+};
